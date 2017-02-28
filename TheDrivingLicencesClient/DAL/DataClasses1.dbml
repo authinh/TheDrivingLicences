@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ThiA1" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=USERMIC-VMP4UTQ\SQLEXPRESS;Initial Catalog=ThiA1;User ID=sa" SettingsObjectName="TheDrivingLicencesClient.Properties.Settings" SettingsPropertyName="ThiA1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Answers" Member="Answers">
+    <Type Name="Answer">
+      <Column Name="QuestionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AnswerTrue" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Question_Answer" Member="Question" ThisKey="QuestionID" OtherKey="QuestionID" Type="Question" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="UserType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_ExamsUser" Member="ExamsUsers" ThisKey="UserID" OtherKey="UserID" Type="ExamsUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Exams" Member="Exams">
+    <Type Name="Exam">
+      <Column Name="ExamID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ExamTitle" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ExamMark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExamDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ExamTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="ExamStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Exam_ExamsQuestion" Member="ExamsQuestions" ThisKey="ExamID" OtherKey="ExamID" Type="ExamsQuestion" />
+      <Association Name="Exam_ExamsUser" Member="ExamsUsers" ThisKey="ExamID" OtherKey="ExamID" Type="ExamsUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExamsQuestions" Member="ExamsQuestions">
+    <Type Name="ExamsQuestion">
+      <Column Name="ExamID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QuestionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Exam_ExamsQuestion" Member="Exam" ThisKey="ExamID" OtherKey="ExamID" Type="Exam" IsForeignKey="true" />
+      <Association Name="Question_ExamsQuestion" Member="Question" ThisKey="QuestionID" OtherKey="QuestionID" Type="Question" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExamsUsers" Member="ExamsUsers">
+    <Type Name="ExamsUser">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ExamID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Exam_ExamsUser" Member="Exam" ThisKey="ExamID" OtherKey="ExamID" Type="Exam" IsForeignKey="true" />
+      <Association Name="User_ExamsUser" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Questions" Member="Questions">
+    <Type Name="Question">
+      <Column Name="QuestionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuestionImage" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Question_Answer" Member="Answers" ThisKey="QuestionID" OtherKey="QuestionID" Type="Answer" />
+      <Association Name="Question_ExamsQuestion" Member="ExamsQuestions" ThisKey="QuestionID" OtherKey="QuestionID" Type="ExamsQuestion" />
+    </Type>
+  </Table>
+</Database>
