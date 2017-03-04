@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheDrivingLicencesClient.BLL;
+using TheDrivingLicencesClient.DAL;
 
 namespace TheDrivingLicencesClient
 {
@@ -15,13 +17,18 @@ namespace TheDrivingLicencesClient
         public Login()
         {
             InitializeComponent();
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            panelLogin.Hide();
+            load();
         }
 
-       
+        public void load()
+        {
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            panelLogin.Hide();
+            cbTitle.DataSource =(List<Exam>) ExamsBLL.getListExams();
+        }
 
-      
+
+
 
         private void Check_click(object sender, EventArgs e)
         {
@@ -36,7 +43,7 @@ namespace TheDrivingLicencesClient
         private void open_Tick(object sender, EventArgs e)
         {
             panelLogin.Show();
-            
+
             int temp = panelLogin.Location.X;
             for (int x = temp; x >= 320; x -= 10)
             {

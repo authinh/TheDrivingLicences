@@ -10,13 +10,13 @@ using System.Net;
 
 namespace TheDrivingLicencesClient.BLL
 {
-    public class QuestionBLL
+    public static class QuestionBLL
     {
         /**
          * param name="list"
          * return : trả lại list question đã được random
          */
-        public List<Question> getRandomListQ(List<Question> list)
+        public static List<Question> getRandomListQ(List<Question> list)
         {
             // code below here 
             return null;
@@ -28,7 +28,7 @@ namespace TheDrivingLicencesClient.BLL
          *returns trả về true, false kiểm  tra đáp án đùng không
          *example 
          */
-        public bool checkAnswer(Question q, string answer)
+        public static bool checkAnswer(Question q, string answer)
         {
             //code below here
             return true;
@@ -37,8 +37,8 @@ namespace TheDrivingLicencesClient.BLL
         /**
          * param name="q" câu hỏi
          * returns trả về đáp án kiểu string
-         */ 
-        public string getAnswer(Question q)
+         */
+        public static string getAnswer(Question q)
         {
             //code below here
             return null;
@@ -47,8 +47,8 @@ namespace TheDrivingLicencesClient.BLL
         /**
          * param name="answer" : list các câu trả lời đc trọng
          * param name="list" : list các câu hỏi
-         */ 
-        public Result getResult(List<Question> list, List<string> answer)
+         */
+        public static Result getResult(List<Question> list, List<string> answer)
         {
             //code below here
             return null;
@@ -58,7 +58,7 @@ namespace TheDrivingLicencesClient.BLL
          * param name="url" đường truyền từ mạng intenet
          * returns trả về ảnh dạng Image
          */
-        public Image getImage(string url)
+        public static Image getImage(string url)
         {
             MemoryStream msImage;
             WebClient wcImage = new WebClient();

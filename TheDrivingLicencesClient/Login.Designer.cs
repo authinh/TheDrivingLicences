@@ -39,15 +39,16 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
+            this.bExit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tbSoBaoDanh = new System.Windows.Forms.TextBox();
+            this.cbTitle = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lAddress = new System.Windows.Forms.Label();
+            this.lCMND = new System.Windows.Forms.Label();
+            this.lBrithday = new System.Windows.Forms.Label();
+            this.lName = new System.Windows.Forms.Label();
+            this.lRank = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.open = new System.Windows.Forms.Timer(this.components);
             this.close = new System.Windows.Forms.Timer(this.components);
-            this.bExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -78,8 +78,8 @@
             this.splitContainer1.Panel1.Controls.Add(this.panel3);
             this.splitContainer1.Panel1.Controls.Add(this.bExit);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.tbSoBaoDanh);
+            this.splitContainer1.Panel1.Controls.Add(this.cbTitle);
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
@@ -172,6 +172,18 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Logo ở đây";
             // 
+            // bExit
+            // 
+            this.bExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.bExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bExit.Location = new System.Drawing.Point(582, 193);
+            this.bExit.Name = "bExit";
+            this.bExit.Size = new System.Drawing.Size(112, 38);
+            this.bExit.TabIndex = 12;
+            this.bExit.Text = "EXIT";
+            this.bExit.UseVisualStyleBackColor = false;
+            this.bExit.Click += new System.EventHandler(this.closeWindow_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(446, 193);
@@ -182,30 +194,30 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Check_click);
             // 
-            // textBox1
+            // tbSoBaoDanh
             // 
-            this.textBox1.Location = new System.Drawing.Point(535, 137);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 22);
-            this.textBox1.TabIndex = 11;
+            this.tbSoBaoDanh.Location = new System.Drawing.Point(535, 137);
+            this.tbSoBaoDanh.Name = "tbSoBaoDanh";
+            this.tbSoBaoDanh.Size = new System.Drawing.Size(159, 22);
+            this.tbSoBaoDanh.TabIndex = 11;
             // 
-            // comboBox1
+            // cbTitle
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(535, 101);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 24);
-            this.comboBox1.TabIndex = 10;
+            this.cbTitle.FormattingEnabled = true;
+            this.cbTitle.Location = new System.Drawing.Point(535, 101);
+            this.cbTitle.Name = "cbTitle";
+            this.cbTitle.Size = new System.Drawing.Size(159, 24);
+            this.cbTitle.TabIndex = 10;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.lAddress);
+            this.panel1.Controls.Add(this.lCMND);
+            this.panel1.Controls.Add(this.lBrithday);
+            this.panel1.Controls.Add(this.lName);
+            this.panel1.Controls.Add(this.lRank);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -216,50 +228,50 @@
             this.panel1.Size = new System.Drawing.Size(390, 326);
             this.panel1.TabIndex = 9;
             // 
-            // label15
+            // lAddress
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(133, 191);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(54, 17);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "label11";
+            this.lAddress.AutoSize = true;
+            this.lAddress.Location = new System.Drawing.Point(133, 191);
+            this.lAddress.Name = "lAddress";
+            this.lAddress.Size = new System.Drawing.Size(54, 17);
+            this.lAddress.TabIndex = 1;
+            this.lAddress.Text = "label11";
             // 
-            // label14
+            // lCMND
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(133, 152);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 17);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "label11";
+            this.lCMND.AutoSize = true;
+            this.lCMND.Location = new System.Drawing.Point(133, 152);
+            this.lCMND.Name = "lCMND";
+            this.lCMND.Size = new System.Drawing.Size(54, 17);
+            this.lCMND.TabIndex = 1;
+            this.lCMND.Text = "label11";
             // 
-            // label13
+            // lBrithday
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(133, 111);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 17);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "label11";
+            this.lBrithday.AutoSize = true;
+            this.lBrithday.Location = new System.Drawing.Point(133, 111);
+            this.lBrithday.Name = "lBrithday";
+            this.lBrithday.Size = new System.Drawing.Size(54, 17);
+            this.lBrithday.TabIndex = 1;
+            this.lBrithday.Text = "label11";
             // 
-            // label12
+            // lName
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(133, 74);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 17);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "label11";
+            this.lName.AutoSize = true;
+            this.lName.Location = new System.Drawing.Point(133, 74);
+            this.lName.Name = "lName";
+            this.lName.Size = new System.Drawing.Size(54, 17);
+            this.lName.TabIndex = 1;
+            this.lName.Text = "label11";
             // 
-            // label11
+            // lRank
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(133, 32);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 17);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "label11";
+            this.lRank.AutoSize = true;
+            this.lRank.Location = new System.Drawing.Point(133, 32);
+            this.lRank.Name = "lRank";
+            this.lRank.Size = new System.Drawing.Size(54, 17);
+            this.lRank.TabIndex = 1;
+            this.lRank.Text = "label11";
             // 
             // label3
             // 
@@ -332,18 +344,6 @@
             // 
             this.close.Tick += new System.EventHandler(this.close_tick);
             // 
-            // bExit
-            // 
-            this.bExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.bExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bExit.Location = new System.Drawing.Point(582, 193);
-            this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(112, 38);
-            this.bExit.TabIndex = 12;
-            this.bExit.Text = "EXIT";
-            this.bExit.UseVisualStyleBackColor = false;
-            this.bExit.Click += new System.EventHandler(this.closeWindow_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -381,14 +381,14 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox tbSoBaoDanh;
+        private System.Windows.Forms.ComboBox cbTitle;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lAddress;
+        private System.Windows.Forms.Label lCMND;
+        private System.Windows.Forms.Label lBrithday;
+        private System.Windows.Forms.Label lName;
+        private System.Windows.Forms.Label lRank;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
