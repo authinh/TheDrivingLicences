@@ -16,10 +16,13 @@ namespace TheDrivingLicencesClient.BLL
          * param name="list"
          * return : trả lại list question đã được random
          */
-        public static List<Question> getRandomListQ(List<Question> list)
+        public static List<Question> getRandomListQ(List<Question> listQ)
         {
-            // code below here 
-            return null;
+            List<Question> listTemp = QuestionDAL.getRandomListQ();
+            // code below here ---- ramdom cac cau hoi tu list tren
+
+            //-----------------------
+            return listTemp;
         }
 
         /**
@@ -30,27 +33,20 @@ namespace TheDrivingLicencesClient.BLL
          */
         public static bool checkAnswer(Question q, string answer)
         {
-            //code below here
-            return true;
+            AnswersDAL answersDAL = new AnswersDAL();
+            return answersDAL.checkAnswer(q.QuestionID,answer);
         }
-
-        /**
-         * param name="q" câu hỏi
-         * returns trả về đáp án kiểu string
-         */
-        public static string getAnswer(Question q)
-        {
-            //code below here
-            return null;
-        }
+       
 
         /**
          * param name="answer" : list các câu trả lời đc trọng
          * param name="list" : list các câu hỏi
+         * returns kết quả thi 
          */
         public static Result getResult(List<Question> list, List<string> answer)
         {
-            //code below here
+            //code below here dùng hàm checkAnswer để làm
+
             return null;
         }
 

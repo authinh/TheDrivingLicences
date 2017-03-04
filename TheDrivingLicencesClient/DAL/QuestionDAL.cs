@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace TheDrivingLicencesClient.DAL
 {
-    public class QuestionDAL
+    public static class QuestionDAL
     {
+        public static List<Question> getRandomListQ()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

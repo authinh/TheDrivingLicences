@@ -8,9 +8,9 @@ namespace TheDrivingLicencesClient.DAL
 {
     public class AnswersDAL
     {
-        private DataClasses1DataContext db;
+        private  DataClasses1DataContext db;
 
-        public AnswersDAL()
+        public  AnswersDAL()
         {
             db = new DataClasses1DataContext();
         }
@@ -20,7 +20,8 @@ namespace TheDrivingLicencesClient.DAL
          * một câu hỏi có nhiều đáp án đúng
          * returns true false
          */
-        public bool checkAnswer(int QuestionID,string ans){
+        public bool checkAnswer(int QuestionID, string ans)
+        {
             var listAnswer = from table in db.Answers
                              where table.QuestionID == QuestionID
                              select table.AnswerTrue;
