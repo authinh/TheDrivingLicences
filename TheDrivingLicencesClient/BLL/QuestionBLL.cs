@@ -13,12 +13,13 @@ namespace TheDrivingLicencesClient.BLL
     public static class QuestionBLL
     {
         /**
-         * param name="list"
+         * param name="int"
          * return : trả lại list question đã được random
          */
-        public static List<Question> getRandomListQ(List<Question> listQ)
+        public static List<Question> getRandomListQ(int examID)
         {
-            List<Question> listTemp = QuestionDAL.getRandomListQ();
+            QuestionDAL questionDAL = new QuestionDAL();
+            List<Question> listTemp = questionDAL.getListQ(examID);
             // code below here ---- ramdom cac cau hoi tu list tren
 
             //-----------------------

@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace TheDrivingLicencesClient.DAL
 {
-    public static class QuestionDAL
+    public class QuestionDAL
     {
-        public static List<Question> getRandomListQ()
+        private DataClasses1DataContext db;
+        
+        public QuestionDAL()
         {
-            throw new NotImplementedException();
+            db = new DataClasses1DataContext();
+        }
+
+        public List<Question> getListQ(int examID)
+        {
+            var listQuestion = (from table in db.ExamsQuestions
+                                where table.ExamID == examID
+
+                                select table).OrderBy(x => x.QuestionID).Take(50);
+            //===chua xong
+            return null;
         }
 
     }
