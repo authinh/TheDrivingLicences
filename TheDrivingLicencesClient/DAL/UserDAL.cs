@@ -21,15 +21,16 @@ namespace TheDrivingLicencesClient.DAL
          * returns -1 if user pass incorrect
          * returns -2 other error
          */
-        public int checkAccount(string user, string pass)
+        public int checkAccount(string username, string pass)
         {
             try {
-                int userId = (from table in db.Users
-                              where (table.Username.Equals(user) && table.Password.Equals(pass))  
-                                select table.UserID).SingleOrDefault();
+                User user = (from table in db.Users
+                              where (table.Username.Equals(username) )//&& table.Password.Equals(pass))  
+                                select table).SingleOrDefault();
 
-                if (userId > 0){
-                    return userId;
+                
+                if (user.Password.Equals(pass)){
+                    return user.UserID;
                 }
                  else {
                     return -1;

@@ -10,10 +10,11 @@ namespace TheDrivingLicencesClient.BLL
     public static class ExamsBLL
     {
 
+
         public static List<Exam> getListExams()
         {
-
-            return ExamsDAL.getListExams();
+            ExamsDAL examsDAL = new ExamsDAL();
+            return examsDAL.getListExams();
         }
         
         

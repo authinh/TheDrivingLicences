@@ -6,11 +6,34 @@ using System.Threading.Tasks;
 
 namespace TheDrivingLicencesClient.DAL
 {
-    public static class ExamsDAL
+    public class ExamsDAL
     {
-        public static List<Exam> getListExams()
+        private DataClasses1DataContext db;
+
+        public ExamsDAL()
         {
-            return null;
+            db = new DataClasses1DataContext();
+        }
+        public List<Exam> getListExams()
+        {
+            try
+            {
+                List<Exam> listExams = new List<Exam>();
+                var list = from table in db.Exams
+                                select table;
+                foreach (Exam item in list)
+                {
+
+                    listExams.Add(item);
+                }
+                return listExams;
+            }
+            catch (InvalidOperationException)
+            {
+                return null;
+            }
+            
+                       
         }
     }
 }
