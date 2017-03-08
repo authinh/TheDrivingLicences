@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TheDrivingLicencesClient.DAL
 {
@@ -18,12 +16,11 @@ namespace TheDrivingLicencesClient.DAL
         {
             try
             {
-                List<Exam> listExams = new List<Exam>();
+                var listExams = new List<Exam>();
                 var list = from table in db.Exams
                            select table;
                 foreach (Exam item in list)
                 {
-
                     listExams.Add(item);
                 }
                 return listExams;
@@ -32,8 +29,6 @@ namespace TheDrivingLicencesClient.DAL
             {
                 return null;
             }
-
-
         }
 
 
@@ -42,14 +37,13 @@ namespace TheDrivingLicencesClient.DAL
         {
             try
             {
-                Exam exam = (from table in db.Exams
-                             where table.ExamID == examID
-                             select table).SingleOrDefault<Exam>();
+                var exam = (from table in db.Exams
+                            where table.ExamID == examID
+                            select table).SingleOrDefault<Exam>();
                 return exam;
             }
             catch (Exception)
             {
-
                 return null;
             }
         }

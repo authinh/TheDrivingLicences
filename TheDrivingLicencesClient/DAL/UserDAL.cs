@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TheDrivingLicencesClient.DAL
 {
@@ -23,22 +21,26 @@ namespace TheDrivingLicencesClient.DAL
          */
         public int checkAccount(string username, string pass)
         {
-            try {
-                User user = (from table in db.Users
-                              where (table.Username.Equals(username) )//&& table.Password.Equals(pass))  
-                                select table).SingleOrDefault();
+            try
+            {
+                var user = (from table in db.Users
+                            where (table.Username.Equals(username) )
+                            select table).SingleOrDefault();
 
-                
-                if (user.Password.Equals(pass)){
+
+                if (user.Password.Equals(pass))
+                {
                     return user.UserID;
                 }
-                 else {
+                else
+                {
                     return -1;
                 }
-                }
-                catch(InvalidOperationException){
-                    return -2;
-                }
+            }
+            catch (InvalidOperationException)
+            {
+                return -2;
+            }
         }
 
         /**
@@ -49,10 +51,10 @@ namespace TheDrivingLicencesClient.DAL
         {
             try
             {
-                User user = (from table in db.Users
-                             where (table.UserID == userId)
-                             select table
-                                ).SingleOrDefault();
+                var user = (from table in db.Users
+                            where (table.UserID == userId)
+                            select table
+                ).SingleOrDefault();
 
                 return user;
             }
@@ -60,8 +62,6 @@ namespace TheDrivingLicencesClient.DAL
             {
                 return null;
             }
-
         }
-
     }
 }

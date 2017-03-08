@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TheDrivingLicencesClient.DAL
 {
@@ -14,7 +12,6 @@ namespace TheDrivingLicencesClient.DAL
 
         public Result()
         {
-
         }
         public Result(int totalOfQuestion, int selectQuestion, int numberOfCorrect)
         {
@@ -22,9 +19,5 @@ namespace TheDrivingLicencesClient.DAL
             this.selectQuestion = selectQuestion;
             this.numberOfCorrect = numberOfCorrect;
         }
-
-        
-
-        
     }
 }

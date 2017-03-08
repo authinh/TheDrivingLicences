@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using TheDrivingLicencesClient.BLL;
 using TheDrivingLicencesClient.DAL;
-
+using System.Drawing;
 namespace TheDrivingLicencesClient
 {
     public partial class TestForm : Form
@@ -21,14 +15,20 @@ namespace TheDrivingLicencesClient
         private int min;
         private List<Button> listButton;
         private List<CheckButton> listCheckButton;
+        private List<string> listAns;
         private int index;
-        //tong so cau da chon
         private int totalDone;
+
         public TestForm()
         {
-            this.exam = ExamsBLL.getExamsByID(1);
-            this.user = UserBLL.getUser(3);
+            exam = ExamsBLL.getExamsByID(1);
+            user = UserBLL.getUser(3);
             InitializeComponent();
+            GlobalKeyboardHook hook = new GlobalKeyboardHook();
+            hook.KeyDown += new KeyEventHandler(hook_KeyDown);
+            hook.Hook();
+            TopMost = true; 
+            
         }
 
         public TestForm(Exam exam, User user)
@@ -36,26 +36,18 @@ namespace TheDrivingLicencesClient
             this.exam = exam;
             this.user = user;
             InitializeComponent();
-
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        private static void hook_KeyDown(object sender, KeyEventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            e.SuppressKeyPress = true;
+            e.Handled = true;
         }
 
 
-        // load giao diện
         private void TestForm_Load(object sender, EventArgs e)
         {
-            index = 0;
-            
-            // load user info
-            this.Hide();
+            Hide();
             labelName.Text = user.FirstName + " " + user.LastName;
             labelInforName.Text = user.FirstName + " " + user.LastName;
             labelInforID.Text = user.UserID.ToString();
@@ -63,95 +55,170 @@ namespace TheDrivingLicencesClient
             labelInforBirth.Text = user.Birthday.ToShortDateString();
             labelInforAdress.Text = user.Address;
             labelTitle.Text = exam.ExamTitle;
-            // set min
-            this.min = exam.ExamTime.Minutes;
+
+            min = exam.ExamTime.Minutes;
             lTime.Text = min.ToString();
-            this.min *= 60;
-            // load anh question
+            min *= 60;
+
             listQ = QuestionBLL.getRandomListQ(exam.ExamID);
             totalDone = listQ.Count;
             labelNotSelected.Text = totalDone.ToString();
+            listAns = new List<string>();
+            iSImageQuestion.CurrentImageIndexChanged +=iSImageQuestion_CurrentImageIndexChanged;
             foreach (Question item in listQ)
             {
-                //iSImageQuestion.Images.Add(QuestionBLL.getImage(item.QuestionImage));
+                iSImageQuestion.Images.Add(QuestionBLL.getImage(item.QuestionImage));
+                listAns.Add(string.Empty);
             }
-           listButton = new List<Button>();
-            for (int i = 1; i <= listQ.Count; i++)
+            listButton = new List<Button>();
+            for (var i = 1; i <= listQ.Count; i++)
             {
-                Button b = new Button();
-                b.Text = i+ "";
+                var b = new Button();
+                b.Text = i + string.Empty;
                 b.Size = new Size(60, 60);
+                b.BackColor = Color.WhiteSmoke;
+
                 listButton.Add(b);
                 b.Click += selectQuestion_Click;
                 fLpListNumber.Controls.Add(b);
+                
             }
-            // add chech butto
+
+            listCheckButton = new List<CheckButton>();
             listCheckButton.Add(cbAnsA);
             listCheckButton.Add(cbAnsB);
             listCheckButton.Add(cbAnsC);
             listCheckButton.Add(cbAnsD);
-                
-                
-           
+
+            Show();
             
-            this.Show();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void iSImageQuestion_CurrentImageIndexChanged(object sender, DevExpress.XtraEditors.Controls.ImageSliderCurrentImageIndexChangedEventArgs e)
         {
-
-
+            var staus = iSImageQuestion.CurrentImageIndex;
+            lStatus.Text = (staus + 1).ToString();
         }
 
 
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
-        private void label14_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label24_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
 
         private void doCountdown(object sender, EventArgs e)
         {
+            var ts = TimeSpan.FromSeconds(min--);
 
-            TimeSpan ts = TimeSpan.FromSeconds(min--);
-            
-               
-                labelCountTime.Text = ts.ToString(@"hh\:mm\:ss");
-                Refresh();
-            // lam sau
-                if (min < 0) this.Close();
-            
 
+            labelCountTime.Text = ts.ToString(@"hh\:mm\:ss");
+            Refresh();
+
+            if (min < 0)
+            {
+                new ResultForm(listQ, listAns).Show();
+                Hide();
+            }
         }
 
         private void selectQuestion_Click(object sender, EventArgs e)
         {
+            var button = (Button)sender;
 
-            Button button = (Button)sender;
-            iSImageQuestion.CurrentImageIndex = int.Parse(button.Text);
-            index = int.Parse(button.Text); 
+            index = int.Parse(button.Text);
+            lStatus.Text = index.ToString();
+        }
+
+        private void lStatus_TextChanged(object sender, EventArgs e)
+        {
+            var staus = int.Parse(((Label)sender).Text) - 1;
+
+            iSImageQuestion.CurrentImageIndex = staus;
+
+            FormBLL.resetCheckButtom(listCheckButton);
+
+            FormBLL.setMultipleAns(listCheckButton, listAns[staus]);
+        }
+
+
+
+        private void doSelectAns_Click(object sender, MouseEventArgs e)
+        {
+            var staus = int.Parse(lStatus.Text) - 1;
+            var cb = (CheckButton)sender;
+            var ans = cb.Text;
+            if (cb.Checked)
+            {
+                listAns[staus] = listAns[staus].Replace(ans, string.Empty);
+            }
+            else
+            {
+                listAns[staus] += ans;
+            }
+            if (!listAns[staus].Equals(string.Empty))
+            {
+                listButton[staus].BackColor = Color.Lime;
+            }
+            else
+            {
+                listButton[staus].BackColor = Color.WhiteSmoke;
+            }
+            var count = 0;
+
+            foreach (string item in listAns)
+            {
+                if (item.Length > 0)
+                {
+                    count++;
+                }
+            }
+            labelSelected.Text = count.ToString();
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            var staus = int.Parse(lStatus.Text);
+            if (staus == listQ.Count)
+            {
+                staus = 1;
+            }
+            else
+            {
+                staus++;
+            }
+            lStatus.Text = staus.ToString();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            var staus = int.Parse(lStatus.Text);
+            if (staus == 1)
+            {
+                staus = listQ.Count;
+            }
+            else
+            {
+                staus--;
+            }
+            lStatus.Text = staus.ToString();
+        }
+
+        private void checkBoxChose_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((CheckBox)sender).Checked)
+            {
+                buttonSubmit.Enabled = true;
+            }
+            else
+            {
+                buttonSubmit.Enabled = false;
+            }
+        }
+
+        private void buttonSubmit_Click(object sender, EventArgs e)
+        {
+            new ResultForm(listQ, listAns).Show();
+            Hide();
         }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
 namespace TheDrivingLicencesClient.BLL
@@ -12,7 +9,7 @@ namespace TheDrivingLicencesClient.BLL
     {
         public static string getMultipleAns(List<CheckButton> listCheckButton)
         {
-            string temp = "";
+            var temp = string.Empty;
             foreach (CheckButton item in listCheckButton)
             {
                 if (item.Checked)
@@ -23,19 +20,42 @@ namespace TheDrivingLicencesClient.BLL
             return temp;
         }
 
-        public static void setMultipleAns(List<CheckButton> listCheckButton,string ans)
+        public static void setMultipleAns(List<CheckButton> listCheckButton, string ans)
         {
-            //------sau lam tiep
+            resetCheckButtom(listCheckButton);
+            foreach (CheckButton item in listCheckButton)
+            {
+                if (ans.Contains(item.Text))
+                {
+                    item.Checked = true;
+                }
+                else
+                {
+                    item.Checked = false;
+                }
+            }
+        }
+
+        public static string addAnsToListAns(List<CheckButton> listCheckButton, string a)
+        {
+            var temp = a;
+
+            foreach (CheckButton item in listCheckButton)
+            {
+                if (item.Checked)
+                {
+                    temp += item.Text;
+                }
+            }
+            return temp;
         }
 
         public static void resetCheckButtom(List<CheckButton> listCheckButton)
         {
-            
             foreach (CheckButton item in listCheckButton)
             {
                 item.Checked = false;
             }
-            
         }
     }
 }

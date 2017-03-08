@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TheDrivingLicencesClient.DAL;
 using System.Drawing;
 using System.IO;
@@ -18,11 +16,11 @@ namespace TheDrivingLicencesClient.BLL
          */
         public static List<Question> getRandomListQ(int examID)
         {
-            QuestionDAL questionDAL = new QuestionDAL();
-            List<Question> listTemp = questionDAL.getListQ(examID);
-            // code below here ---- ramdom cac cau hoi tu list tren
+            var questionDAL = new QuestionDAL();
+            var listTemp = questionDAL.getListQ(examID);
 
-            //-----------------------
+
+
             return listTemp;
         }
 
@@ -34,10 +32,10 @@ namespace TheDrivingLicencesClient.BLL
          */
         public static bool checkAnswer(Question q, string answer)
         {
-            AnswersDAL answersDAL = new AnswersDAL();
-            return answersDAL.checkAnswer(q.QuestionID,answer);
+            var answersDAL = new AnswersDAL();
+            return answersDAL.checkAnswer(q.QuestionID, answer);
         }
-       
+
 
         /**
          * param name="answer" : list các câu trả lời đc trọng
@@ -46,8 +44,6 @@ namespace TheDrivingLicencesClient.BLL
          */
         public static Result getResult(List<Question> list, List<string> answer)
         {
-            //code below here dùng hàm checkAnswer để làm
-
             return null;
         }
 
@@ -58,8 +54,8 @@ namespace TheDrivingLicencesClient.BLL
         public static Image getImage(string url)
         {
             MemoryStream msImage;
-            WebClient wcImage = new WebClient();
-            msImage = new MemoryStream(wcImage.DownloadData(@"http://dev.anhdung.net/PRN292/"+url));
+            var wcImage = new WebClient();
+            msImage = new MemoryStream(wcImage.DownloadData(@"http://dev.anhdung.net/PRN292/" + url));
             return Image.FromStream(msImage);
         }
     }

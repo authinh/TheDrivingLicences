@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TheDrivingLicencesClient.DAL
 {
@@ -27,7 +25,7 @@ namespace TheDrivingLicencesClient.DAL
                              select table.AnswerTrue;
             foreach (int answers in listAnswer)
             {
-                if (!ans.Contains(answers+""))
+                if (!ans.Contains(answers + string.Empty))
                 {
                     return false;
                 }

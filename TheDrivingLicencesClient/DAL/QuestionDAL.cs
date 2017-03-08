@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TheDrivingLicencesClient.DAL
 {
@@ -24,13 +22,12 @@ namespace TheDrivingLicencesClient.DAL
                                select t2
 
                                     ).OrderBy(x => x.QuestionID).Take(50).ToList<Question>();
-           
+
             foreach (var item in listQuestion)
             {
                 Console.WriteLine(item.QuestionID);
             }
             return (List<Question>)listQuestion;
         }
-
     }
 }

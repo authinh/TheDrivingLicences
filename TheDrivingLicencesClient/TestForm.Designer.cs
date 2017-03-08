@@ -37,6 +37,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cbAnsA = new DevExpress.XtraEditors.CheckButton();
+            this.cbAnsB = new DevExpress.XtraEditors.CheckButton();
+            this.cbAnsC = new DevExpress.XtraEditors.CheckButton();
+            this.cbAnsD = new DevExpress.XtraEditors.CheckButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -69,10 +73,9 @@
             this.checkBoxChose = new System.Windows.Forms.CheckBox();
             this.countdown = new System.Windows.Forms.Timer(this.components);
             this.fLpListNumber = new System.Windows.Forms.FlowLayoutPanel();
-            this.cbAnsD = new DevExpress.XtraEditors.CheckButton();
-            this.cbAnsC = new DevExpress.XtraEditors.CheckButton();
-            this.cbAnsB = new DevExpress.XtraEditors.CheckButton();
-            this.cbAnsA = new DevExpress.XtraEditors.CheckButton();
+            this.lStatus = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iSImageQuestion)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -88,11 +91,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.iSImageQuestion.CurrentImageIndex = -1;
-            this.iSImageQuestion.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
+            this.iSImageQuestion.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.MiddleCenter;
             this.iSImageQuestion.Location = new System.Drawing.Point(80, 127);
             this.iSImageQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.iSImageQuestion.Name = "iSImageQuestion";
-            this.iSImageQuestion.Size = new System.Drawing.Size(1062, 407);
+            this.iSImageQuestion.Size = new System.Drawing.Size(1072, 407);
             this.iSImageQuestion.TabIndex = 0;
             this.iSImageQuestion.Text = "iSImageQuestion";
             this.iSImageQuestion.UseDisabledStatePainter = true;
@@ -100,6 +103,7 @@
             // buttonSubmit
             // 
             this.buttonSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSubmit.Enabled = false;
             this.buttonSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.buttonSubmit.ForeColor = System.Drawing.Color.Black;
             this.buttonSubmit.Location = new System.Drawing.Point(1249, 678);
@@ -109,6 +113,7 @@
             this.buttonSubmit.TabIndex = 2;
             this.buttonSubmit.Text = "Nộp bài";
             this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // label1
             // 
@@ -120,7 +125,6 @@
             this.label1.Size = new System.Drawing.Size(86, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Thời gian: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -132,7 +136,6 @@
             this.label2.Size = new System.Drawing.Size(93, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Họ và Tên: ";
-            this.label2.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -144,7 +147,6 @@
             this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "phút";
-            this.label3.Click += new System.EventHandler(this.label1_Click);
             // 
             // label4
             // 
@@ -155,7 +157,6 @@
             this.label4.Size = new System.Drawing.Size(70, 17);
             this.label4.TabIndex = 7;
             this.label4.Text = "Tên kỳ thi";
-            this.label4.Click += new System.EventHandler(this.label1_Click);
             // 
             // label5
             // 
@@ -167,7 +168,6 @@
             this.label5.Size = new System.Drawing.Size(33, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "ID: ";
-            this.label5.Click += new System.EventHandler(this.label1_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -183,6 +183,78 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(761, 73);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
+            // cbAnsA
+            // 
+            this.cbAnsA.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbAnsA.Appearance.Options.UseFont = true;
+            this.cbAnsA.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cbAnsA.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
+            this.cbAnsA.AppearanceHovered.Options.UseBackColor = true;
+            this.cbAnsA.AppearancePressed.BackColor = System.Drawing.Color.Lime;
+            this.cbAnsA.AppearancePressed.Options.UseBackColor = true;
+            this.cbAnsA.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.cbAnsA.Location = new System.Drawing.Point(3, 3);
+            this.cbAnsA.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
+            this.cbAnsA.Name = "cbAnsA";
+            this.cbAnsA.Size = new System.Drawing.Size(76, 66);
+            this.cbAnsA.TabIndex = 10;
+            this.cbAnsA.Text = "1";
+            this.cbAnsA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.doSelectAns_Click);
+            // 
+            // cbAnsB
+            // 
+            this.cbAnsB.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbAnsB.Appearance.Options.UseFont = true;
+            this.cbAnsB.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cbAnsB.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
+            this.cbAnsB.AppearanceHovered.Options.UseBackColor = true;
+            this.cbAnsB.AppearancePressed.BackColor = System.Drawing.Color.Lime;
+            this.cbAnsB.AppearancePressed.Options.UseBackColor = true;
+            this.cbAnsB.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.cbAnsB.Location = new System.Drawing.Point(85, 3);
+            this.cbAnsB.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
+            this.cbAnsB.Name = "cbAnsB";
+            this.cbAnsB.Size = new System.Drawing.Size(76, 66);
+            this.cbAnsB.TabIndex = 11;
+            this.cbAnsB.Text = "2";
+            this.cbAnsB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.doSelectAns_Click);
+            // 
+            // cbAnsC
+            // 
+            this.cbAnsC.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbAnsC.Appearance.Options.UseFont = true;
+            this.cbAnsC.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cbAnsC.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
+            this.cbAnsC.AppearanceHovered.Options.UseBackColor = true;
+            this.cbAnsC.AppearancePressed.BackColor = System.Drawing.Color.Lime;
+            this.cbAnsC.AppearancePressed.Options.UseBackColor = true;
+            this.cbAnsC.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.cbAnsC.Location = new System.Drawing.Point(167, 3);
+            this.cbAnsC.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
+            this.cbAnsC.Name = "cbAnsC";
+            this.cbAnsC.Size = new System.Drawing.Size(76, 66);
+            this.cbAnsC.TabIndex = 12;
+            this.cbAnsC.Text = "3";
+            this.cbAnsC.MouseClick += new System.Windows.Forms.MouseEventHandler(this.doSelectAns_Click);
+            // 
+            // cbAnsD
+            // 
+            this.cbAnsD.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbAnsD.Appearance.Options.UseFont = true;
+            this.cbAnsD.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cbAnsD.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
+            this.cbAnsD.AppearanceHovered.Options.UseBackColor = true;
+            this.cbAnsD.AppearancePressed.BackColor = System.Drawing.Color.Lime;
+            this.cbAnsD.AppearancePressed.Options.UseBackColor = true;
+            this.cbAnsD.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.cbAnsD.Location = new System.Drawing.Point(249, 3);
+            this.cbAnsD.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
+            this.cbAnsD.Name = "cbAnsD";
+            this.cbAnsD.Size = new System.Drawing.Size(76, 66);
+            this.cbAnsD.TabIndex = 13;
+            this.cbAnsD.Text = "4";
+            this.cbAnsD.MouseClick += new System.Windows.Forms.MouseEventHandler(this.doSelectAns_Click);
+            // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -194,7 +266,6 @@
             this.label6.Size = new System.Drawing.Size(146, 24);
             this.label6.TabIndex = 9;
             this.label6.Text = "Chọn câu trả lời";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label8
             // 
@@ -207,7 +278,6 @@
             this.label8.Size = new System.Drawing.Size(152, 24);
             this.label8.TabIndex = 9;
             this.label8.Text = "Thông tin bài thi";
-            this.label8.Click += new System.EventHandler(this.label6_Click);
             // 
             // panel1
             // 
@@ -228,7 +298,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(312, 268);
             this.panel1.TabIndex = 10;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label11
             // 
@@ -240,7 +309,6 @@
             this.label11.Size = new System.Drawing.Size(68, 17);
             this.label11.TabIndex = 9;
             this.label11.Text = "Địa chỉ: ";
-            this.label11.Click += new System.EventHandler(this.label6_Click);
             // 
             // label10
             // 
@@ -252,7 +320,6 @@
             this.label10.Size = new System.Drawing.Size(85, 17);
             this.label10.TabIndex = 9;
             this.label10.Text = "Ngày sinh:";
-            this.label10.Click += new System.EventHandler(this.label6_Click);
             // 
             // label12
             // 
@@ -264,7 +331,6 @@
             this.label12.Size = new System.Drawing.Size(92, 17);
             this.label12.TabIndex = 9;
             this.label12.Text = "Điện thoại: ";
-            this.label12.Click += new System.EventHandler(this.label6_Click);
             // 
             // label9
             // 
@@ -276,7 +342,6 @@
             this.label9.Size = new System.Drawing.Size(93, 17);
             this.label9.TabIndex = 9;
             this.label9.Text = "Họ và Tên: ";
-            this.label9.Click += new System.EventHandler(this.label6_Click);
             // 
             // labelInforPhone
             // 
@@ -287,7 +352,6 @@
             this.labelInforPhone.Size = new System.Drawing.Size(88, 17);
             this.labelInforPhone.TabIndex = 9;
             this.labelInforPhone.Text = "0123456789";
-            this.labelInforPhone.Click += new System.EventHandler(this.label6_Click);
             // 
             // labelInforAdress
             // 
@@ -298,7 +362,6 @@
             this.labelInforAdress.Size = new System.Drawing.Size(51, 17);
             this.labelInforAdress.TabIndex = 9;
             this.labelInforAdress.Text = "Hà Nội";
-            this.labelInforAdress.Click += new System.EventHandler(this.label6_Click);
             // 
             // labelInforBirth
             // 
@@ -309,7 +372,6 @@
             this.labelInforBirth.Size = new System.Drawing.Size(80, 17);
             this.labelInforBirth.TabIndex = 9;
             this.labelInforBirth.Text = "03/06/1996";
-            this.labelInforBirth.Click += new System.EventHandler(this.label6_Click);
             // 
             // labelInforName
             // 
@@ -320,7 +382,6 @@
             this.labelInforName.Size = new System.Drawing.Size(65, 17);
             this.labelInforName.TabIndex = 9;
             this.labelInforName.Text = "Âu Thịnh";
-            this.labelInforName.Click += new System.EventHandler(this.label6_Click);
             // 
             // labelInforID
             // 
@@ -331,7 +392,6 @@
             this.labelInforID.Size = new System.Drawing.Size(16, 17);
             this.labelInforID.TabIndex = 9;
             this.labelInforID.Text = "1";
-            this.labelInforID.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -343,7 +403,6 @@
             this.label7.Size = new System.Drawing.Size(33, 17);
             this.label7.TabIndex = 9;
             this.label7.Text = "ID: ";
-            this.label7.Click += new System.EventHandler(this.label6_Click);
             // 
             // label13
             // 
@@ -356,7 +415,6 @@
             this.label13.Size = new System.Drawing.Size(153, 24);
             this.label13.TabIndex = 9;
             this.label13.Text = "Thời gian còn lại";
-            this.label13.Click += new System.EventHandler(this.label6_Click);
             // 
             // panel2
             // 
@@ -404,7 +462,6 @@
             this.labelNotSelected.Size = new System.Drawing.Size(29, 20);
             this.labelNotSelected.TabIndex = 13;
             this.labelNotSelected.Text = "50";
-            this.labelNotSelected.Click += new System.EventHandler(this.label17_Click);
             // 
             // labelSelected
             // 
@@ -413,10 +470,9 @@
             this.labelSelected.Location = new System.Drawing.Point(173, 17);
             this.labelSelected.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSelected.Name = "labelSelected";
-            this.labelSelected.Size = new System.Drawing.Size(29, 20);
+            this.labelSelected.Size = new System.Drawing.Size(19, 20);
             this.labelSelected.TabIndex = 13;
-            this.labelSelected.Text = "50";
-            this.labelSelected.Click += new System.EventHandler(this.label16_Click);
+            this.labelSelected.Text = "0";
             // 
             // label15
             // 
@@ -426,10 +482,9 @@
             this.label15.Location = new System.Drawing.Point(4, 47);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(155, 20);
+            this.label15.Size = new System.Drawing.Size(118, 20);
             this.label15.TabIndex = 0;
-            this.label15.Text = "Số câu chưa làm:";
-            this.label15.Click += new System.EventHandler(this.label14_Click);
+            this.label15.Text = "Tổng số câu:";
             // 
             // label14
             // 
@@ -442,7 +497,6 @@
             this.label14.Size = new System.Drawing.Size(141, 20);
             this.label14.TabIndex = 0;
             this.label14.Text = "Số câu đã làm: ";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // pBLogo2
             // 
@@ -466,7 +520,6 @@
             this.pBLogo1.TabIndex = 6;
             this.pBLogo1.TabStop = false;
             this.pBLogo1.UseWaitCursor = true;
-            this.pBLogo1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // buttonBack
             // 
@@ -478,6 +531,7 @@
             this.buttonBack.TabIndex = 13;
             this.buttonBack.Text = "Trở lại";
             this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // buttonNext
             // 
@@ -489,6 +543,7 @@
             this.buttonNext.TabIndex = 13;
             this.buttonNext.Text = "Tiếp";
             this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // lTime
             // 
@@ -499,7 +554,6 @@
             this.lTime.Size = new System.Drawing.Size(24, 17);
             this.lTime.TabIndex = 14;
             this.lTime.Text = "90";
-            this.lTime.Click += new System.EventHandler(this.label24_Click);
             // 
             // labelTitle
             // 
@@ -530,7 +584,6 @@
             this.labelID.Size = new System.Drawing.Size(16, 17);
             this.labelID.TabIndex = 14;
             this.labelID.Text = "1";
-            this.labelID.Click += new System.EventHandler(this.label24_Click);
             // 
             // checkBoxChose
             // 
@@ -543,6 +596,7 @@
             this.checkBoxChose.TabIndex = 15;
             this.checkBoxChose.Text = "Bạn đã chắc chắn hoàn thành!";
             this.checkBoxChose.UseVisualStyleBackColor = true;
+            this.checkBoxChose.CheckedChanged += new System.EventHandler(this.checkBoxChose_CheckedChanged);
             // 
             // countdown
             // 
@@ -554,84 +608,54 @@
             // 
             this.fLpListNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.fLpListNumber.AutoScroll = true;
+            this.fLpListNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fLpListNumber.Location = new System.Drawing.Point(1220, 127);
             this.fLpListNumber.Name = "fLpListNumber";
             this.fLpListNumber.Size = new System.Drawing.Size(377, 519);
             this.fLpListNumber.TabIndex = 16;
             // 
-            // cbAnsD
+            // lStatus
             // 
-            this.cbAnsD.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbAnsD.Appearance.Options.UseFont = true;
-            this.cbAnsD.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cbAnsD.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
-            this.cbAnsD.AppearanceHovered.Options.UseBackColor = true;
-            this.cbAnsD.AppearancePressed.BackColor = System.Drawing.Color.Lime;
-            this.cbAnsD.AppearancePressed.Options.UseBackColor = true;
-            this.cbAnsD.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.cbAnsD.Location = new System.Drawing.Point(249, 3);
-            this.cbAnsD.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
-            this.cbAnsD.Name = "cbAnsD";
-            this.cbAnsD.Size = new System.Drawing.Size(76, 66);
-            this.cbAnsD.TabIndex = 13;
-            this.cbAnsD.Text = "4";
+            this.lStatus.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lStatus.AutoSize = true;
+            this.lStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lStatus.Location = new System.Drawing.Point(1232, 86);
+            this.lStatus.Name = "lStatus";
+            this.lStatus.Size = new System.Drawing.Size(19, 20);
+            this.lStatus.TabIndex = 17;
+            this.lStatus.Text = "1";
+            this.lStatus.TextChanged += new System.EventHandler(this.lStatus_TextChanged);
             // 
-            // cbAnsC
+            // label17
             // 
-            this.cbAnsC.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbAnsC.Appearance.Options.UseFont = true;
-            this.cbAnsC.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cbAnsC.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
-            this.cbAnsC.AppearanceHovered.Options.UseBackColor = true;
-            this.cbAnsC.AppearancePressed.BackColor = System.Drawing.Color.Lime;
-            this.cbAnsC.AppearancePressed.Options.UseBackColor = true;
-            this.cbAnsC.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.cbAnsC.Location = new System.Drawing.Point(167, 3);
-            this.cbAnsC.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
-            this.cbAnsC.Name = "cbAnsC";
-            this.cbAnsC.Size = new System.Drawing.Size(76, 66);
-            this.cbAnsC.TabIndex = 12;
-            this.cbAnsC.Text = "3";
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label17.Location = new System.Drawing.Point(1281, 86);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(29, 20);
+            this.label17.TabIndex = 14;
+            this.label17.Text = "50";
             // 
-            // cbAnsB
+            // label18
             // 
-            this.cbAnsB.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbAnsB.Appearance.Options.UseFont = true;
-            this.cbAnsB.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cbAnsB.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
-            this.cbAnsB.AppearanceHovered.Options.UseBackColor = true;
-            this.cbAnsB.AppearancePressed.BackColor = System.Drawing.Color.Lime;
-            this.cbAnsB.AppearancePressed.Options.UseBackColor = true;
-            this.cbAnsB.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.cbAnsB.Location = new System.Drawing.Point(85, 3);
-            this.cbAnsB.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
-            this.cbAnsB.Name = "cbAnsB";
-            this.cbAnsB.Size = new System.Drawing.Size(76, 66);
-            this.cbAnsB.TabIndex = 11;
-            this.cbAnsB.Text = "2";
-            // 
-            // cbAnsA
-            // 
-            this.cbAnsA.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbAnsA.Appearance.Options.UseFont = true;
-            this.cbAnsA.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cbAnsA.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
-            this.cbAnsA.AppearanceHovered.Options.UseBackColor = true;
-            this.cbAnsA.AppearancePressed.BackColor = System.Drawing.Color.Lime;
-            this.cbAnsA.AppearancePressed.Options.UseBackColor = true;
-            this.cbAnsA.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.cbAnsA.Location = new System.Drawing.Point(3, 3);
-            this.cbAnsA.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
-            this.cbAnsA.Name = "cbAnsA";
-            this.cbAnsA.Size = new System.Drawing.Size(76, 66);
-            this.cbAnsA.TabIndex = 10;
-            this.cbAnsA.Text = "1";
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(1271, 86);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(12, 17);
+            this.label18.TabIndex = 18;
+            this.label18.Text = "/";
             // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.lStatus);
             this.Controls.Add(this.fLpListNumber);
             this.Controls.Add(this.checkBoxChose);
             this.Controls.Add(this.labelTitle);
@@ -656,6 +680,7 @@
             this.Controls.Add(this.pBLogo1);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.iSImageQuestion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TestForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -723,6 +748,9 @@
         private DevExpress.XtraEditors.CheckButton cbAnsB;
         private DevExpress.XtraEditors.CheckButton cbAnsC;
         private DevExpress.XtraEditors.CheckButton cbAnsD;
+        private System.Windows.Forms.Label lStatus;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
 
 
 

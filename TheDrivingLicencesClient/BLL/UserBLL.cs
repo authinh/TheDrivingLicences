@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using TheDrivingLicencesClient.DAL;
 using System.Security.Cryptography;
 
@@ -12,27 +11,27 @@ namespace TheDrivingLicencesClient.BLL
     {
         public static User getUser(int userID)
         {
-            UserDAL userDAL = new UserDAL();
+            var userDAL = new UserDAL();
             return userDAL.getInfoUser(userID);
         }
 
         public static int checkAccount(string username, string pass)
         {
-            UserDAL userDAL = new UserDAL();
-            ExamsDAL examsDAL = new ExamsDAL();
-            //--- phần này chưa xong
+            var userDAL = new UserDAL();
+            var examsDAL = new ExamsDAL();
+
             pass = MD5Hash(pass);
             return userDAL.checkAccount(username, pass);
         }
 
-        // tao ma MD5
+
         public static string MD5Hash(string input)
         {
-            StringBuilder hash= new StringBuilder();
-            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
-            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
+            var hash = new StringBuilder();
+            var md5provider = new MD5CryptoServiceProvider();
+            var bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
 
-            for (int i = 0; i < bytes.Length; i++)
+            for (var i = 0; i < bytes.Length; i++)
             {
                 hash.Append(bytes[i].ToString("x2"));
             }
