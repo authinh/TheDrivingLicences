@@ -16,6 +16,12 @@ namespace TheDrivingLicencesClient.BLL
             ExamsDAL examsDAL = new ExamsDAL();
             return examsDAL.getListExams();
         }
+
+        public static Exam getExamsByID(int examID)
+        {
+            ExamsDAL examsDAL = new ExamsDAL();
+            return examsDAL.getExamsByID(examID);
+        }
         
         
     }

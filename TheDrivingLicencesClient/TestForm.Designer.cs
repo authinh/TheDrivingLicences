@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.iSImageQuestion = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.bNumber1 = new System.Windows.Forms.Button();
-            this.fLpListSelect = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,10 +37,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonA = new System.Windows.Forms.Button();
-            this.buttonB = new System.Windows.Forms.Button();
-            this.buttonC = new System.Windows.Forms.Button();
-            this.buttonD = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -72,8 +67,13 @@
             this.labelName = new System.Windows.Forms.Label();
             this.labelID = new System.Windows.Forms.Label();
             this.checkBoxChose = new System.Windows.Forms.CheckBox();
+            this.countdown = new System.Windows.Forms.Timer(this.components);
+            this.fLpListNumber = new System.Windows.Forms.FlowLayoutPanel();
+            this.cbAnsD = new DevExpress.XtraEditors.CheckButton();
+            this.cbAnsC = new DevExpress.XtraEditors.CheckButton();
+            this.cbAnsB = new DevExpress.XtraEditors.CheckButton();
+            this.cbAnsA = new DevExpress.XtraEditors.CheckButton();
             ((System.ComponentModel.ISupportInitialize)(this.iSImageQuestion)).BeginInit();
-            this.fLpListSelect.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -89,41 +89,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.iSImageQuestion.CurrentImageIndex = -1;
             this.iSImageQuestion.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.iSImageQuestion.Location = new System.Drawing.Point(53, 127);
-            this.iSImageQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iSImageQuestion.Location = new System.Drawing.Point(80, 127);
+            this.iSImageQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.iSImageQuestion.Name = "iSImageQuestion";
-            this.iSImageQuestion.Size = new System.Drawing.Size(1152, 407);
+            this.iSImageQuestion.Size = new System.Drawing.Size(1062, 407);
             this.iSImageQuestion.TabIndex = 0;
             this.iSImageQuestion.Text = "iSImageQuestion";
             this.iSImageQuestion.UseDisabledStatePainter = true;
             // 
-            // bNumber1
-            // 
-            this.bNumber1.Location = new System.Drawing.Point(4, 4);
-            this.bNumber1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bNumber1.Name = "bNumber1";
-            this.bNumber1.Size = new System.Drawing.Size(53, 49);
-            this.bNumber1.TabIndex = 2;
-            this.bNumber1.Text = "1";
-            this.bNumber1.UseVisualStyleBackColor = true;
-            // 
-            // fLpListSelect
-            // 
-            this.fLpListSelect.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.fLpListSelect.Controls.Add(this.bNumber1);
-            this.fLpListSelect.Location = new System.Drawing.Point(1245, 127);
-            this.fLpListSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.fLpListSelect.Name = "fLpListSelect";
-            this.fLpListSelect.Size = new System.Drawing.Size(385, 407);
-            this.fLpListSelect.TabIndex = 5;
-            // 
             // buttonSubmit
             // 
-            this.buttonSubmit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.buttonSubmit.ForeColor = System.Drawing.Color.Black;
             this.buttonSubmit.Location = new System.Drawing.Point(1249, 678);
-            this.buttonSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(161, 54);
             this.buttonSubmit.TabIndex = 2;
@@ -191,65 +171,21 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel2.Controls.Add(this.buttonA);
-            this.flowLayoutPanel2.Controls.Add(this.buttonB);
-            this.flowLayoutPanel2.Controls.Add(this.buttonC);
-            this.flowLayoutPanel2.Controls.Add(this.buttonD);
+            this.flowLayoutPanel2.Controls.Add(this.cbAnsA);
+            this.flowLayoutPanel2.Controls.Add(this.cbAnsB);
+            this.flowLayoutPanel2.Controls.Add(this.cbAnsC);
+            this.flowLayoutPanel2.Controls.Add(this.cbAnsD);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(417, 586);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(761, 73);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
-            // buttonA
-            // 
-            this.buttonA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonA.Location = new System.Drawing.Point(4, 4);
-            this.buttonA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonA.Name = "buttonA";
-            this.buttonA.Size = new System.Drawing.Size(100, 62);
-            this.buttonA.TabIndex = 9;
-            this.buttonA.Text = "A";
-            this.buttonA.UseVisualStyleBackColor = true;
-            // 
-            // buttonB
-            // 
-            this.buttonB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonB.Location = new System.Drawing.Point(112, 4);
-            this.buttonB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonB.Name = "buttonB";
-            this.buttonB.Size = new System.Drawing.Size(100, 62);
-            this.buttonB.TabIndex = 9;
-            this.buttonB.Text = "B";
-            this.buttonB.UseVisualStyleBackColor = true;
-            // 
-            // buttonC
-            // 
-            this.buttonC.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonC.Location = new System.Drawing.Point(220, 4);
-            this.buttonC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonC.Name = "buttonC";
-            this.buttonC.Size = new System.Drawing.Size(100, 62);
-            this.buttonC.TabIndex = 9;
-            this.buttonC.Text = "C";
-            this.buttonC.UseVisualStyleBackColor = true;
-            // 
-            // buttonD
-            // 
-            this.buttonD.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonD.Location = new System.Drawing.Point(328, 4);
-            this.buttonD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonD.Name = "buttonD";
-            this.buttonD.Size = new System.Drawing.Size(100, 62);
-            this.buttonD.TabIndex = 9;
-            this.buttonD.Text = "D";
-            this.buttonD.UseVisualStyleBackColor = true;
-            // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Sitka Text", 9.749999F, System.Drawing.FontStyle.Bold);
             this.label6.Location = new System.Drawing.Point(413, 544);
@@ -262,7 +198,7 @@
             // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Sitka Text", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(929, 709);
@@ -275,7 +211,7 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label12);
@@ -288,7 +224,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panel1.Location = new System.Drawing.Point(53, 555);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(312, 268);
             this.panel1.TabIndex = 10;
@@ -411,7 +347,7 @@
             // 
             // label13
             // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Sitka Text", 9.749999F, System.Drawing.FontStyle.Bold);
             this.label13.Location = new System.Drawing.Point(528, 709);
@@ -424,11 +360,11 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.labelCountTime);
             this.panel2.Location = new System.Drawing.Point(417, 738);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(375, 84);
             this.panel2.TabIndex = 11;
@@ -446,14 +382,14 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.labelNotSelected);
             this.panel3.Controls.Add(this.labelSelected);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Location = new System.Drawing.Point(801, 738);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(377, 84);
             this.panel3.TabIndex = 11;
@@ -512,7 +448,7 @@
             // 
             this.pBLogo2.Image = global::TheDrivingLicencesClient.Properties.Resources.GetImage;
             this.pBLogo2.Location = new System.Drawing.Point(817, 15);
-            this.pBLogo2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pBLogo2.Margin = new System.Windows.Forms.Padding(4);
             this.pBLogo2.Name = "pBLogo2";
             this.pBLogo2.Size = new System.Drawing.Size(119, 105);
             this.pBLogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -523,7 +459,7 @@
             // 
             this.pBLogo1.Image = global::TheDrivingLicencesClient.Properties.Resources.cropped_logo_co_kem_3_sao_012;
             this.pBLogo1.Location = new System.Drawing.Point(53, 15);
-            this.pBLogo1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pBLogo1.Margin = new System.Windows.Forms.Padding(4);
             this.pBLogo1.Name = "pBLogo1";
             this.pBLogo1.Size = new System.Drawing.Size(337, 89);
             this.pBLogo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -534,9 +470,9 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonBack.Location = new System.Drawing.Point(419, 678);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(100, 28);
             this.buttonBack.TabIndex = 13;
@@ -545,9 +481,9 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonNext.Location = new System.Drawing.Point(527, 677);
-            this.buttonNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonNext.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(100, 28);
             this.buttonNext.TabIndex = 13;
@@ -584,7 +520,6 @@
             this.labelName.Size = new System.Drawing.Size(65, 17);
             this.labelName.TabIndex = 14;
             this.labelName.Text = "Âu Thịnh";
-            this.labelName.Click += new System.EventHandler(this.label24_Click);
             // 
             // labelID
             // 
@@ -599,21 +534,105 @@
             // 
             // checkBoxChose
             // 
-            this.checkBoxChose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.checkBoxChose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxChose.AutoSize = true;
             this.checkBoxChose.Location = new System.Drawing.Point(1249, 745);
-            this.checkBoxChose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxChose.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxChose.Name = "checkBoxChose";
             this.checkBoxChose.Size = new System.Drawing.Size(223, 21);
             this.checkBoxChose.TabIndex = 15;
             this.checkBoxChose.Text = "Bạn đã chắc chắn hoàn thành!";
             this.checkBoxChose.UseVisualStyleBackColor = true;
             // 
+            // countdown
+            // 
+            this.countdown.Enabled = true;
+            this.countdown.Interval = 1000;
+            this.countdown.Tick += new System.EventHandler(this.doCountdown);
+            // 
+            // fLpListNumber
+            // 
+            this.fLpListNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.fLpListNumber.AutoScroll = true;
+            this.fLpListNumber.Location = new System.Drawing.Point(1220, 127);
+            this.fLpListNumber.Name = "fLpListNumber";
+            this.fLpListNumber.Size = new System.Drawing.Size(377, 519);
+            this.fLpListNumber.TabIndex = 16;
+            // 
+            // cbAnsD
+            // 
+            this.cbAnsD.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbAnsD.Appearance.Options.UseFont = true;
+            this.cbAnsD.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cbAnsD.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
+            this.cbAnsD.AppearanceHovered.Options.UseBackColor = true;
+            this.cbAnsD.AppearancePressed.BackColor = System.Drawing.Color.Lime;
+            this.cbAnsD.AppearancePressed.Options.UseBackColor = true;
+            this.cbAnsD.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.cbAnsD.Location = new System.Drawing.Point(249, 3);
+            this.cbAnsD.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
+            this.cbAnsD.Name = "cbAnsD";
+            this.cbAnsD.Size = new System.Drawing.Size(76, 66);
+            this.cbAnsD.TabIndex = 13;
+            this.cbAnsD.Text = "4";
+            // 
+            // cbAnsC
+            // 
+            this.cbAnsC.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbAnsC.Appearance.Options.UseFont = true;
+            this.cbAnsC.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cbAnsC.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
+            this.cbAnsC.AppearanceHovered.Options.UseBackColor = true;
+            this.cbAnsC.AppearancePressed.BackColor = System.Drawing.Color.Lime;
+            this.cbAnsC.AppearancePressed.Options.UseBackColor = true;
+            this.cbAnsC.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.cbAnsC.Location = new System.Drawing.Point(167, 3);
+            this.cbAnsC.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
+            this.cbAnsC.Name = "cbAnsC";
+            this.cbAnsC.Size = new System.Drawing.Size(76, 66);
+            this.cbAnsC.TabIndex = 12;
+            this.cbAnsC.Text = "3";
+            // 
+            // cbAnsB
+            // 
+            this.cbAnsB.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbAnsB.Appearance.Options.UseFont = true;
+            this.cbAnsB.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cbAnsB.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
+            this.cbAnsB.AppearanceHovered.Options.UseBackColor = true;
+            this.cbAnsB.AppearancePressed.BackColor = System.Drawing.Color.Lime;
+            this.cbAnsB.AppearancePressed.Options.UseBackColor = true;
+            this.cbAnsB.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.cbAnsB.Location = new System.Drawing.Point(85, 3);
+            this.cbAnsB.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
+            this.cbAnsB.Name = "cbAnsB";
+            this.cbAnsB.Size = new System.Drawing.Size(76, 66);
+            this.cbAnsB.TabIndex = 11;
+            this.cbAnsB.Text = "2";
+            // 
+            // cbAnsA
+            // 
+            this.cbAnsA.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbAnsA.Appearance.Options.UseFont = true;
+            this.cbAnsA.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cbAnsA.AppearanceHovered.BackColor2 = System.Drawing.Color.White;
+            this.cbAnsA.AppearanceHovered.Options.UseBackColor = true;
+            this.cbAnsA.AppearancePressed.BackColor = System.Drawing.Color.Lime;
+            this.cbAnsA.AppearancePressed.Options.UseBackColor = true;
+            this.cbAnsA.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.cbAnsA.Location = new System.Drawing.Point(3, 3);
+            this.cbAnsA.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.LawnGreen;
+            this.cbAnsA.Name = "cbAnsA";
+            this.cbAnsA.Size = new System.Drawing.Size(76, 66);
+            this.cbAnsA.TabIndex = 10;
+            this.cbAnsA.Text = "1";
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.Controls.Add(this.fLpListNumber);
             this.Controls.Add(this.checkBoxChose);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.labelID);
@@ -636,7 +655,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pBLogo1);
             this.Controls.Add(this.buttonSubmit);
-            this.Controls.Add(this.fLpListSelect);
             this.Controls.Add(this.iSImageQuestion);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TestForm";
@@ -645,7 +663,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TestForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iSImageQuestion)).EndInit();
-            this.fLpListSelect.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -663,8 +680,6 @@
         #endregion
 
         private DevExpress.XtraEditors.Controls.ImageSlider iSImageQuestion;
-        private System.Windows.Forms.Button bNumber1;
-        private System.Windows.Forms.FlowLayoutPanel fLpListSelect;
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.PictureBox pBLogo1;
         private System.Windows.Forms.Label label1;
@@ -673,10 +688,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button buttonA;
-        private System.Windows.Forms.Button buttonB;
-        private System.Windows.Forms.Button buttonC;
-        private System.Windows.Forms.Button buttonD;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
@@ -706,6 +717,12 @@
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.CheckBox checkBoxChose;
+        private System.Windows.Forms.Timer countdown;
+        private System.Windows.Forms.FlowLayoutPanel fLpListNumber;
+        private DevExpress.XtraEditors.CheckButton cbAnsA;
+        private DevExpress.XtraEditors.CheckButton cbAnsB;
+        private DevExpress.XtraEditors.CheckButton cbAnsC;
+        private DevExpress.XtraEditors.CheckButton cbAnsD;
 
 
 

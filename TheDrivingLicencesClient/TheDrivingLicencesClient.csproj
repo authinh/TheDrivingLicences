@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ExamsBLL.cs" />
+    <Compile Include="BLL\FormBLL.cs" />
     <Compile Include="BLL\QuestionBLL.cs" />
     <Compile Include="BLL\UserBLL.cs" />
     <Compile Include="DAL\AnswersDAL.cs" />

@@ -20,7 +20,7 @@ namespace TheDrivingLicencesClient.DAL
             {
                 List<Exam> listExams = new List<Exam>();
                 var list = from table in db.Exams
-                                select table;
+                           select table;
                 foreach (Exam item in list)
                 {
 
@@ -32,8 +32,26 @@ namespace TheDrivingLicencesClient.DAL
             {
                 return null;
             }
-            
-                       
+
+
+        }
+
+
+
+        public Exam getExamsByID(int examID)
+        {
+            try
+            {
+                Exam exam = (from table in db.Exams
+                             where table.ExamID == examID
+                             select table).SingleOrDefault<Exam>();
+                return exam;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
     }
 }

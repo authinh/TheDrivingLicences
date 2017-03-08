@@ -59,7 +59,7 @@ namespace TheDrivingLicencesClient.BLL
         {
             MemoryStream msImage;
             WebClient wcImage = new WebClient();
-            msImage = new MemoryStream(wcImage.DownloadData("url hình ảnh"));
+            msImage = new MemoryStream(wcImage.DownloadData(@"http://dev.anhdung.net/PRN292/"+url));
             return Image.FromStream(msImage);
         }
     }
