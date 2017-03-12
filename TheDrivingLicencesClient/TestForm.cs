@@ -136,7 +136,7 @@ namespace TheDrivingLicencesClient
 
             if (min < 0)
             {
-                new ResultForm(listQ, listAns).Show();
+                new ResultForm(listQ, listAns, user ,exam).Show();
                 Hide();
             }
         }
@@ -237,7 +237,7 @@ namespace TheDrivingLicencesClient
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-            new ResultForm(listQ, listAns).Show();
+            new ResultForm(listQ, listAns,user,exam).Show();
             
             Hide();
         }

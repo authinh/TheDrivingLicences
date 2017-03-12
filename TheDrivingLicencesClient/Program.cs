@@ -15,9 +15,9 @@ namespace TheDrivingLicencesClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            //Application.Run(new LoginForm());
             //Application.Run(new TestForm());
-            //Application.Run(new ResultForm());
+            Application.Run(new ResultForm());
             //Application.Run(new WaitForm());
         }
     }

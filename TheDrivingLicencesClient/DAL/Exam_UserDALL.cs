@@ -47,5 +47,23 @@ namespace TheDrivingLicencesClient.DAL
                 return false;
             }
         }
+
+        public bool setMark(int result,int userId,int examId)
+        {
+            try
+            {
+
+                ExamsUser examUser = db.ExamsUsers.Where(x => (x.ExamID.Equals(examId) && x.UserID.Equals(userId))).Single();
+                examUser.Mark = result;
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            
+        }
     }
 }

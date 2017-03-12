@@ -18,5 +18,13 @@ namespace TheDrivingLicencesClient.BLL
 
             return exam_UserBLL.checkStatusUser(userID,examID,status);
         }
+
+        
+
+        internal static bool setMark(int mark, int p1, int p2)
+        {
+            Exam_UserDALL exam_UserDAL = new Exam_UserDALL();
+            return exam_UserDAL.setMark(mark,p1,p2);
+        }
     }
 }

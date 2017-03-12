@@ -22,16 +22,20 @@ namespace TheDrivingLicencesClient.DAL
         {
             try
             {
+                int count = 0;
                 var listAnswer = from table in db.Answers
                                  where table.QuestionID == QuestionID
                                  select table.AnswerTrue;
+                //if (listAnswer.Sum()== ans.Length) return false;
                 foreach (int answers in listAnswer)
                 {
-                    if (!ans.Contains(answers + string.Empty))
+                    count++;
+                    if (!ans.Contains(answers.ToString()))
                     {
                         return false;
                     }
                 }
+                if (count != ans.Length) return false;
                 return true;
             }
             catch (Exception)
