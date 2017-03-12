@@ -5,6 +5,8 @@ using DevExpress.XtraEditors;
 using TheDrivingLicencesClient.BLL;
 using TheDrivingLicencesClient.DAL;
 using System.Drawing;
+using System.Threading;
+
 namespace TheDrivingLicencesClient
 {
     public partial class TestForm : Form
@@ -21,21 +23,28 @@ namespace TheDrivingLicencesClient
 
         public TestForm()
         {
+
             exam = ExamsBLL.getExamsByID(1);
             user = UserBLL.getUser(3);
             InitializeComponent();
             GlobalKeyboardHook hook = new GlobalKeyboardHook();
             hook.KeyDown += new KeyEventHandler(hook_KeyDown);
             hook.Hook();
-            TopMost = true; 
-            
+            TopMost = true;
+
         }
 
+        
         public TestForm(Exam exam, User user)
         {
             this.exam = exam;
             this.user = user;
             InitializeComponent();
+            GlobalKeyboardHook hook = new GlobalKeyboardHook();
+            hook.KeyDown += new KeyEventHandler(hook_KeyDown);
+            hook.Hook();
+            TopMost = true;
+
         }
 
         private static void hook_KeyDown(object sender, KeyEventArgs e)
@@ -64,10 +73,21 @@ namespace TheDrivingLicencesClient
             totalDone = listQ.Count;
             labelNotSelected.Text = totalDone.ToString();
             listAns = new List<string>();
-            iSImageQuestion.CurrentImageIndexChanged +=iSImageQuestion_CurrentImageIndexChanged;
+            iSImageQuestion.CurrentImageIndexChanged += iSImageQuestion_CurrentImageIndexChanged;
             foreach (Question item in listQ)
             {
-                iSImageQuestion.Images.Add(QuestionBLL.getImage(item.QuestionImage));
+                try
+                {
+                    //iSImageQuestion.Images.Add(QuestionBLL.getImage(item.QuestionImage));
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("internet is not connected");
+                    System.Threading.Thread.Sleep(3000);
+                    this.Close();
+                }
+
                 listAns.Add(string.Empty);
             }
             listButton = new List<Button>();
@@ -81,7 +101,7 @@ namespace TheDrivingLicencesClient
                 listButton.Add(b);
                 b.Click += selectQuestion_Click;
                 fLpListNumber.Controls.Add(b);
-                
+
             }
 
             listCheckButton = new List<CheckButton>();
@@ -91,7 +111,7 @@ namespace TheDrivingLicencesClient
             listCheckButton.Add(cbAnsD);
 
             Show();
-            
+
         }
 
         private void iSImageQuestion_CurrentImageIndexChanged(object sender, DevExpress.XtraEditors.Controls.ImageSliderCurrentImageIndexChangedEventArgs e)
@@ -218,6 +238,7 @@ namespace TheDrivingLicencesClient
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
             new ResultForm(listQ, listAns).Show();
+            
             Hide();
         }
     }

@@ -41,6 +41,14 @@ namespace TheDrivingLicencesClient.DAL
             {
                 return -2;
             }
+            catch (NullReferenceException)
+            {
+                return -3;
+            }
+            catch (Exception)
+            {
+                return -4;
+            }
         }
 
         /**

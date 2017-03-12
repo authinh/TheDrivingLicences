@@ -10,13 +10,14 @@ namespace TheDrivingLicencesClient
 {
     public partial class LoginForm : Form
     {
+        private User user;
         public LoginForm()
         {
             InitializeComponent();
             load();
-           
+
         }
-       
+
         public void load()
         {
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -25,6 +26,7 @@ namespace TheDrivingLicencesClient
 
             cbTitle.DataSource = (List<Exam>)ExamsBLL.getListExams();
             cbTitle.DisplayMember = "ExamTitle";
+            cbTitle.SelectionStart = 0;
         }
 
 
@@ -32,6 +34,7 @@ namespace TheDrivingLicencesClient
 
         private void loadInfo(User user)
         {
+            this.user = user;
             lRank.Text = "A1";
             lName.Text = user.FirstName + " " + user.LastName;
             lBrithday.Text = user.Birthday.ToShortDateString();
@@ -113,7 +116,27 @@ namespace TheDrivingLicencesClient
             }
             else
             {
-                new WaitForm1().Show();
+
+                Exam exam = ((Exam)cbTitle.SelectedValue);
+                try
+                {
+                    if (Exam_UserBLL.checkStatusUser(userId, exam.ExamID))
+                    {
+                        Exam_UserBLL.setStatusUser(userId, exam.ExamID, true);
+                        new TestForm(exam, user).Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("tài khoản đã thi không vào đc");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("tài khoản chưa đc đăng ký");
+                }
+
+
             }
         }
     }

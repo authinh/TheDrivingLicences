@@ -6,9 +6,9 @@ namespace TheDrivingLicencesClient.DAL
 {
     public class AnswersDAL
     {
-        private  DataClasses1DataContext db;
+        private DataClasses1DataContext db;
 
-        public  AnswersDAL()
+        public AnswersDAL()
         {
             db = new DataClasses1DataContext();
         }
@@ -20,17 +20,26 @@ namespace TheDrivingLicencesClient.DAL
          */
         public bool checkAnswer(int QuestionID, string ans)
         {
-            var listAnswer = from table in db.Answers
-                             where table.QuestionID == QuestionID
-                             select table.AnswerTrue;
-            foreach (int answers in listAnswer)
+            try
             {
-                if (!ans.Contains(answers + string.Empty))
+                var listAnswer = from table in db.Answers
+                                 where table.QuestionID == QuestionID
+                                 select table.AnswerTrue;
+                foreach (int answers in listAnswer)
                 {
-                    return false;
+                    if (!ans.Contains(answers + string.Empty))
+                    {
+                        return false;
+                    }
                 }
+                return true;
             }
-            return true;
+            catch (Exception)
+            {
+
+                return false;
+            }
+
         }
     }
 }

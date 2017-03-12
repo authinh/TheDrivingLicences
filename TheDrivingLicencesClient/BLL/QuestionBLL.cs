@@ -18,9 +18,7 @@ namespace TheDrivingLicencesClient.BLL
         {
             var questionDAL = new QuestionDAL();
             var listTemp = questionDAL.getListQ(examID);
-
-
-
+            
             return listTemp;
         }
 
@@ -44,7 +42,24 @@ namespace TheDrivingLicencesClient.BLL
          */
         public static Result getResult(List<Question> list, List<string> answer)
         {
-            return null;
+            Result result = new Result();
+            int correctAnswer = 0;
+            int choiseAnswer = 0;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (!String.IsNullOrEmpty(answer[i])) choiseAnswer++;
+                if (checkAnswer(list[i], answer[i]))
+                {
+                    correctAnswer++;
+                }
+            }
+
+            result.totalOfQuestion = list.Count;
+            result.numberOfCorrect = correctAnswer;
+            result.selectQuestion = choiseAnswer;
+
+            return result;
         }
 
         /**

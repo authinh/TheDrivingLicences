@@ -62,8 +62,6 @@
             this.labelSelected = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.pBLogo2 = new System.Windows.Forms.PictureBox();
-            this.pBLogo1 = new System.Windows.Forms.PictureBox();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonNext = new System.Windows.Forms.Button();
             this.lTime = new System.Windows.Forms.Label();
@@ -76,6 +74,8 @@
             this.lStatus = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.pBLogo2 = new System.Windows.Forms.PictureBox();
+            this.pBLogo1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.iSImageQuestion)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -498,29 +498,6 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Số câu đã làm: ";
             // 
-            // pBLogo2
-            // 
-            this.pBLogo2.Image = global::TheDrivingLicencesClient.Properties.Resources.GetImage;
-            this.pBLogo2.Location = new System.Drawing.Point(817, 15);
-            this.pBLogo2.Margin = new System.Windows.Forms.Padding(4);
-            this.pBLogo2.Name = "pBLogo2";
-            this.pBLogo2.Size = new System.Drawing.Size(119, 105);
-            this.pBLogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pBLogo2.TabIndex = 12;
-            this.pBLogo2.TabStop = false;
-            // 
-            // pBLogo1
-            // 
-            this.pBLogo1.Image = global::TheDrivingLicencesClient.Properties.Resources.cropped_logo_co_kem_3_sao_012;
-            this.pBLogo1.Location = new System.Drawing.Point(53, 15);
-            this.pBLogo1.Margin = new System.Windows.Forms.Padding(4);
-            this.pBLogo1.Name = "pBLogo1";
-            this.pBLogo1.Size = new System.Drawing.Size(337, 89);
-            this.pBLogo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBLogo1.TabIndex = 6;
-            this.pBLogo1.TabStop = false;
-            this.pBLogo1.UseWaitCursor = true;
-            // 
             // buttonBack
             // 
             this.buttonBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -608,7 +585,6 @@
             // 
             this.fLpListNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.fLpListNumber.AutoScroll = true;
-            this.fLpListNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fLpListNumber.Location = new System.Drawing.Point(1220, 127);
             this.fLpListNumber.Name = "fLpListNumber";
             this.fLpListNumber.Size = new System.Drawing.Size(377, 519);
@@ -647,6 +623,29 @@
             this.label18.Size = new System.Drawing.Size(12, 17);
             this.label18.TabIndex = 18;
             this.label18.Text = "/";
+            // 
+            // pBLogo2
+            // 
+            this.pBLogo2.Image = global::TheDrivingLicencesClient.Properties.Resources.GetImage;
+            this.pBLogo2.Location = new System.Drawing.Point(817, 15);
+            this.pBLogo2.Margin = new System.Windows.Forms.Padding(4);
+            this.pBLogo2.Name = "pBLogo2";
+            this.pBLogo2.Size = new System.Drawing.Size(119, 105);
+            this.pBLogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pBLogo2.TabIndex = 12;
+            this.pBLogo2.TabStop = false;
+            // 
+            // pBLogo1
+            // 
+            this.pBLogo1.Image = global::TheDrivingLicencesClient.Properties.Resources.cropped_logo_co_kem_3_sao_012;
+            this.pBLogo1.Location = new System.Drawing.Point(53, 15);
+            this.pBLogo1.Margin = new System.Windows.Forms.Padding(4);
+            this.pBLogo1.Name = "pBLogo1";
+            this.pBLogo1.Size = new System.Drawing.Size(337, 89);
+            this.pBLogo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBLogo1.TabIndex = 6;
+            this.pBLogo1.TabStop = false;
+            this.pBLogo1.UseWaitCursor = true;
             // 
             // TestForm
             // 
