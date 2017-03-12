@@ -78,7 +78,7 @@ namespace TheDrivingLicencesClient
             {
                 try
                 {
-                    //iSImageQuestion.Images.Add(QuestionBLL.getImage(item.QuestionImage));
+                    iSImageQuestion.Images.Add(QuestionBLL.getImage(item.QuestionImage));
                 }
                 catch (Exception)
                 {
