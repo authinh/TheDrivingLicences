@@ -79,5 +79,14 @@ namespace TheDrivingLicencesClient.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://dev.anhdung.net/PRN292/.
+        /// </summary>
+        internal static string linkserver {
+            get {
+                return ResourceManager.GetString("linkserver", resourceCulture);
+            }
+        }
     }
 }

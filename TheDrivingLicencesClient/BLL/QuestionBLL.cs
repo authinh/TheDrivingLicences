@@ -5,6 +5,7 @@ using TheDrivingLicencesClient.DAL;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using TheDrivingLicencesClient.Properties;
 
 namespace TheDrivingLicencesClient.BLL
 {
@@ -70,7 +71,7 @@ namespace TheDrivingLicencesClient.BLL
         {
             MemoryStream msImage;
             var wcImage = new WebClient();
-            msImage = new MemoryStream(wcImage.DownloadData(@"http://dev.anhdung.net/PRN292/" + url));
+            msImage = new MemoryStream(wcImage.DownloadData(Resources.linkserver + url));
             return Image.FromStream(msImage);
         }
     }

@@ -73,7 +73,7 @@ namespace TheDrivingLicencesClient
 
             float mark = ((float)result.numberOfCorrect / (float)result.totalOfQuestion) * 100;
             Exam_UserBLL.setMark((int)mark, user.UserID, exam.ExamID);
-            if (mark >= 50)
+            if (mark >= exam.ExamMark)
             {
                 labelStatus.Text = "Đã Qua";
                 labelStatus.BackColor = Color.LightGreen;

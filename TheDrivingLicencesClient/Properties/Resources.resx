@@ -124,4 +124,7 @@
   <data name="GetImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GetImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="linkserver" xml:space="preserve">
+    <value>http://dev.anhdung.net/PRN292/</value>
+  </data>
 </root>
