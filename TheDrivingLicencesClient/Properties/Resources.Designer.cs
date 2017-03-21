@@ -81,7 +81,7 @@ namespace TheDrivingLicencesClient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://dev.anhdung.net/PRN292/.
+        ///   Looks up a localized string similar to http://192.168.117.128/prn292/.
         /// </summary>
         internal static string linkserver {
             get {

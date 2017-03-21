@@ -71,7 +71,7 @@ namespace TheDrivingLicencesClient
             lIncorrect.Text = (result.totalOfQuestion - result.numberOfCorrect).ToString();
             labelResult.Text = result.totalOfQuestion.ToString();
 
-            float mark = ((float)result.numberOfCorrect / (float)result.totalOfQuestion) * 100;
+            float mark = (float)result.numberOfCorrect;
             Exam_UserBLL.setMark((int)mark, user.UserID, exam.ExamID);
             if (mark >= exam.ExamMark)
             {

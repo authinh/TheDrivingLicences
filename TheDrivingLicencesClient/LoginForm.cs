@@ -123,7 +123,9 @@ namespace TheDrivingLicencesClient
                     if (Exam_UserBLL.checkStatusUser(userId, exam.ExamID))
                     {
                         Exam_UserBLL.setStatusUser(userId, exam.ExamID, true);
-                        new TestForm(exam, user).Show();
+                        TestForm tf = new TestForm(exam, user);
+                        tf.FormClosed +=tf_FormClosed;
+                        tf.Show();
                         this.Hide();
                     }
                     else
@@ -138,6 +140,11 @@ namespace TheDrivingLicencesClient
 
 
             }
+        }
+
+        private void tf_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

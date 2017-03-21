@@ -68,7 +68,7 @@ namespace TheDrivingLicencesClient
             min = exam.ExamTime.Minutes;
             lTime.Text = min.ToString();
             min *= 60;
-
+            
             listQ = QuestionBLL.getRandomListQ(exam.ExamID);
             totalDone = listQ.Count;
             labelNotSelected.Text = totalDone.ToString();
@@ -109,7 +109,7 @@ namespace TheDrivingLicencesClient
             listCheckButton.Add(cbAnsB);
             listCheckButton.Add(cbAnsC);
             listCheckButton.Add(cbAnsD);
-
+            label17.Text = listQ.Count.ToString();
             Show();
 
         }
@@ -136,8 +136,11 @@ namespace TheDrivingLicencesClient
 
             if (min < 0)
             {
-                new ResultForm(listQ, listAns, user ,exam).Show();
+                ResultForm rf = new ResultForm(listQ, listAns, user, exam);
+                rf.FormClosed += rf_FormClosed;
+                rf.Show();
                 Hide();
+                countdown.Enabled = false;
             }
         }
 
@@ -237,9 +240,16 @@ namespace TheDrivingLicencesClient
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-            new ResultForm(listQ, listAns,user,exam).Show();
+            ResultForm rf = new ResultForm(listQ, listAns, user, exam);
+            rf.FormClosed +=rf_FormClosed;
+            rf.Show();     
             
             Hide();
+        }
+
+        private void rf_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
